@@ -5,7 +5,8 @@ import github from "../assets/github.svg";
 import linkedin from "../assets/linkedin.svg";
 import twitter from "../assets/twitter.svg";
 import { useData } from "../contexts/appContext";
-function Input({ placeholder = "Github", type = "text", icon = "twitter" }) {
+
+function Input({ placeholder, type = "text", icon }) {
   const icons = {
     link: link,
     job: job,
@@ -13,6 +14,8 @@ function Input({ placeholder = "Github", type = "text", icon = "twitter" }) {
     linkedin: linkedin,
     twitter: twitter,
   };
+
+  const { handleInputChange } = useData();
 
   return (
     <div className="p-2">
