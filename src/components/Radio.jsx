@@ -1,9 +1,17 @@
 import React from "react";
 import { useData } from "../contexts/appContext";
 
-export const RadioInput = ({ options }) => {
-  const { handleTemplateChange } = useData();
+export const RadioInput = ({ colorOptions, headerPositionOptions }) => {
+  const { handleTemplateChange, handleHeaderPositionChange } = useData();
+  const options = colorOptions ? colorOptions : headerPositionOptions;
 
+  const handleChange = (option) => {
+    if(colorOptions) 
+      handleTemplateChange(option)
+    else if (headerPositionOptions)
+      handleHeaderPositionChange(option)
+  }
+  
   return (
     <div>
       <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -19,9 +27,9 @@ export const RadioInput = ({ options }) => {
                 id={`horizontal-list-radio-${option}`}
                 type="radio"
                 value={option}
-                name="list-radio"
+                name={colorOptions ? colorOptions : headerPositionOptions}
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
-                onChange={() => handleTemplateChange(option)}
+                onChange={() => handleChange(option)}
               />
               <label
                 htmlFor={`horizontal-list-radio-${option}`}
