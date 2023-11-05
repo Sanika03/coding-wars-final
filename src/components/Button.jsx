@@ -4,71 +4,7 @@ import { useData } from "../contexts/appContext";
 function Button({ text = "Submit", ...rest }) {
   const { handleSubmit } = useData();
   const { formData } = useData();
-  // const [portfolioHTML, setportfolioHTML] = useState("");
-  // const [isLoading, setisLoading] = useState(false);
-  // const [isSuccess, setisSuccess] = useState(false);
-  // const { resHTML, setresHTML } = useData();
-  // function generateGPTPrompt() {
-  //   console.log("gpt:", formData);
-  //   // Create a GPT prompt using the updated user input
-  //   const promptTemplate = `Give me markup for portfolio in the form of website, with the following details:
-  // Template: ${formData.template}
-  // Header Position: ${formData.headerPosition}
-  // Include Photo: ${formData.includePhoto ? "Yes" : "No"}
-  // Professional Summary: ${formData.professionalSummary}
-  // Experience: ${formData.experience.map(
-  //   (entry) => `\n- ${entry.jobTitle} at ${entry.company}`
-  // )}
-  // Education: ${formData.education.map(
-  //   (entry) => `\n- ${entry.graduationYear} at ${entry.institutionName}`
-  // )}
-  // Skills: ${formData.skills.join(", ")}
-  // Contact: GitHub - ${formData.contact.githubURL}, LinkedIn - ${
-  //     formData.contact.linkedinURL
-  //   }, Twitter - ${formData.contact.twitterURL}
-  // Colors: Primary - ${formData.colors.primary}, Secondary - ${
-  //     formData.colors.secondary
-  //   }, Background - ${formData.colors.background}
-  // Font: ${formData.font}
-  // Font Size: ${formData.fontSize}
-  // ...`;
-  //   return promptTemplate;
-  // }
-
-  // const submitRequest = async (formData) => {
-  //   try {
-  //     setisLoading(true);
-  //     setisSuccess(false);
-  //     console.log(generateGPTPrompt(formData));
-
-  //     const response = await fetch(`${API}/complete-text`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //       body: JSON.stringify({ prompt: generateGPTPrompt(formData) }),
-  //     });
-  //     if (!response.ok) {
-  //       throw new Error("Something went wrong on server side");
-  //     }
-  //     const jsonResponse = await response.json();
-  //     const HTML = jsonResponse.output;
-
-  //     setportfolioHTML(HTML);
-  //     setisSuccess(true);
-  //     console.log("buttsucc", isSuccess);
-  //     setresHTML(HTML);
-  //     console.log("⚪️respone:", resHTML);
-  //     return jsonResponse;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return error;
-  //   } finally {
-  //     setisLoading(false);
-  //   }
-  // };
-
+  
   return (
     <button
       className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-gray-900 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
