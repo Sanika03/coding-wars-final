@@ -4,8 +4,8 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [formData, setFormData] = useState({
-    template: "Professional",
-    headerPosition: "top",
+    template: "",
+    headerPosition: "",
     includePhoto: false,
     imageURL: "",
     professionalSummary: "",
@@ -27,12 +27,17 @@ const AppProvider = ({ children }) => {
   });
 
   const [resHTML, setresHTML] = useState("");
-  const handleTemplateChange = (option) => {
-    setFormData({ ...formData, template: option });
-  };
   const [portfolioHTML, setportfolioHTML] = useState("");
   const [isLoading, setisLoading] = useState(false);
   const [isSuccess, setisSuccess] = useState(false);
+
+  const handleTemplateChange = (option) => {
+    setFormData({ ...formData, template: option });
+  };
+
+  const handleHeaderPositionChange = (option) => {
+    setFormData({ ...formData, headerPosition: option });
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type } = e.target;
@@ -160,6 +165,7 @@ const AppProvider = ({ children }) => {
         handleSubmit,
         resHTML,
         setresHTML,
+        handleHeaderPositionChange
       }}
     >
       {children}
