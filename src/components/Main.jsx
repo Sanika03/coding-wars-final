@@ -12,6 +12,7 @@ import Loader from "./Loader";
 const Main = () => {
   const radioOptions = ["professional", "creative", "academic"];
   const colorOptions = ["Primary", "Secondary", "Background"];
+  const headerPositionOptions = ["Top Header", "Side Header "];
   const htmlCode = `
   <!DOCTYPE html>
   <html>
@@ -48,26 +49,26 @@ const Main = () => {
     console.log("gpt:", formData);
     // Create a GPT prompt using the updated user input
     const promptTemplate = `Give me markup for portfolio in the form of website, with the following details:
-  Template: ${formData.template}
-  Header Position: ${formData.headerPosition}
-  Include Photo: ${formData.includePhoto ? "Yes" : "No"}
-  Professional Summary: ${formData.professionalSummary}
-  Experience: ${formData.experience.map(
-    (entry) => `\n- ${entry.jobTitle} at ${entry.company}`
-  )}
-  Education: ${formData.education.map(
-    (entry) => `\n- ${entry.graduationYear} at ${entry.institutionName}`
-  )}
-  Skills: ${formData.skills.join(", ")}
-  Contact: GitHub - ${formData.contact.githubURL}, LinkedIn - ${
-      formData.contact.linkedinURL
-    }, Twitter - ${formData.contact.twitterURL}
-  Colors: Primary - ${formData.colors.primary}, Secondary - ${
-      formData.colors.secondary
-    }, Background - ${formData.colors.background}
-  Font: ${formData.font}
-  Font Size: ${formData.fontSize}
-  ...`;
+    Template: ${formData.template}
+    Header Position: ${formData.headerPosition}
+    Include Photo: ${formData.includePhoto ? "Yes" : "No"}
+    Professional Summary: ${formData.professionalSummary}
+    Experience: ${formData.experience.map(
+      (entry) => `\n- ${entry.jobTitle} at ${entry.company}`
+    )}
+    Education: ${formData.education.map(
+      (entry) => `\n- ${entry.graduationYear} at ${entry.institutionName}`
+    )}
+    Skills: ${formData.skills.join(", ")}
+    Contact: GitHub - ${formData.contact.githubURL}, LinkedIn - ${
+        formData.contact.linkedinURL
+      }, Twitter - ${formData.contact.twitterURL}
+    Colors: Primary - ${formData.colors.primary}, Secondary - ${
+        formData.colors.secondary
+      }, Background - ${formData.colors.background}
+    Font: ${formData.font}
+    Font Size: ${formData.fontSize}
+    ...`;
     return promptTemplate;
   }
 
@@ -126,12 +127,12 @@ const Main = () => {
       ) : (
         <div className="">
           <div className="px-4">
-            <RadioInput options={radioOptions} />
+            <RadioInput colorOptions={colorOptions} />
           </div>
 
           <Input placeholder="Enter your Name" icon="job" />
           <div className="px-4">
-            <RadioInput options={["Top Header", "Side Header "]} />
+            <RadioInput headerPositionOptions={headerPositionOptions} />
           </div>
           <Input placeholder="Enter your Image URL" icon="link" />
           <Input placeholder="Job Title" icon="job" />
